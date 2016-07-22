@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Think DB</title>
+</head>
+<body>
+
+<p id="list-messages"></p>
+
+<script src="/socket.io/socket.io.js"></script>
+<script>
+  var el = document.getElementById("list-messages");
+  var socket = io.connect('http://localhost:3000');
+  socket.on('new_record', function (data) {
+    el.innerHTML = data.title;
+  });
+</script>
+</body>
+</html>
